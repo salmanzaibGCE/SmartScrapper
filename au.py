@@ -28,6 +28,9 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from webdriver_manager.firefox import GeckoDriverManager
 import psutil
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) # Base directory of the script
+
 CONFIG = {
     'BROWSER_LOAD_TIME': 10,
     'TAB_LOAD_TIME': 5,
@@ -41,8 +44,8 @@ CONFIG = {
     'MAX_POSTS': 5,  # Maximum number of posts to scrape
     'SCROLL_PAUSE_TIME': 2,  # Time to pause between scrolls
     'POST_LOAD_TIME': 3,  # Time to wait for post to load
-    'OUTPUT_DIR': 'scraped_content',
-    'MEDIA_DIR': 'media',
+    'OUTPUT_DIR': os.path.join(BASE_DIR, 'scraped_content'),
+    'MEDIA_DIR': os.path.join(BASE_DIR, 'media'),
     'SUPPORTED_SITES': {
         'medium.com': {
             'title': [
